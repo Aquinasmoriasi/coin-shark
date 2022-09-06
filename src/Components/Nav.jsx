@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, Routes, Route } from 'react-router-dom';
 import Leagues from './Leagues';
-import Table from './Table';
+import Tables from './Tables';
 
 const Nav = () => (
   <>
@@ -14,7 +14,7 @@ const Nav = () => (
     </header>
     <Routes>
       <Route path="/" element={<Leagues />} />
-      <Route path="/Table" element={<Table />} />
+      <Route path="/Tables" element={<Tables />} />
     </Routes>
   </>
 );

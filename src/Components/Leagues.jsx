@@ -7,6 +7,7 @@ import { fetchLeagues, fetchTables } from '../redux/leagues/leagues';
 const Leagues = () => {
   const dispatch = useDispatch();
   const leagues = useSelector((state) => state.leagues);
+  console.log(leagues);
   useEffect(() => {
     if (leagues.length === 0) {
       dispatch(fetchLeagues());

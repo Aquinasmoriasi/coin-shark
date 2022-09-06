@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Table = () => (
+const Tables = () => (
   <div>Table</div>
 );
 
-export default Table;
+export default Tables;
