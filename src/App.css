@@ -1,4 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
 * {
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: 'Gill Sans', sans-serif;
+  background-color: rgb(236, 44, 146);
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Lato', sans-serif;
+}
+
+.leagues {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.leagues:nth-of-type(3n-2),
+.leagues:nth-of-type(5),
+.leagues:nth-of-type(8),
+.leagues:nth-of-type(9),
+.leagues:nth-of-type(12),
+.leagues:nth-of-type(17),
+.leagues:nth-of-type(20) {
+  background-color: rgb(238, 32, 142);
+}
+
+.leagues:nth-of-type(7),
+.leagues:nth-of-type(10),
+.leagues:nth-of-type(19) {
+  background-color: rgb(236, 44, 146);
+}
+
+.league-container svg {
+  color: rgb(134, 252, 134);
+  font-size: 25px;
 }

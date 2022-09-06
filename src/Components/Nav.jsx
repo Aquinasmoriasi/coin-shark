@@ -5,7 +5,7 @@ import Leagues from './Leagues';
 const Nav = () => (
   <>
     <header>
-      <h1>League Standings</h1>
+      <h1 style={{ color: '#fff' }}>All Leagues</h1>
       <nav>
         <Link to="/">All leagues</Link>
       </nav>
