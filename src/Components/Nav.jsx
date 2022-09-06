@@ -1,17 +1,20 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { NavLink, Routes, Route } from 'react-router-dom';
 import Leagues from './Leagues';
+import Table from './Table';
 
 const Nav = () => (
   <>
     <header>
-      <h1 style={{ color: '#fff' }}>All Leagues</h1>
       <nav>
-        <Link to="/">All leagues</Link>
+        <NavLink to="/">
+          <h1 style={{ color: '#fff' }}>All Leagues</h1>
+        </NavLink>
       </nav>
     </header>
     <Routes>
       <Route path="/" element={<Leagues />} />
+      <Route path="/Table" element={<Table />} />
     </Routes>
   </>
 );

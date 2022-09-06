@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BiFootball } from 'react-icons/bi';
-import { NavLink, Routes, Route } from 'react-router-dom';
-import { fetchLeagues } from '../redux/leagues/leagues';
+import { NavLink } from 'react-router-dom';
+import { fetchLeagues, fetchTables } from '../redux/leagues/leagues';
 
 const Leagues = () => {
   const dispatch = useDispatch();
@@ -42,6 +42,13 @@ const Leagues = () => {
     bacgroundColor: 'rgb(25, 255, 255)',
   };
 
+  const handleFetchTable = (e) => {
+    const { id } = e.target.parentNode.parentNode;
+    if (id) {
+      dispatch(fetchTables(id));
+    }
+  };
+
   return (
     <>
       {leagues.length && (
@@ -62,9 +69,9 @@ const Leagues = () => {
       <h3>All Leagues</h3>
       <div style={style} className="league-container">
         {leagues.map((league) => (
-          <div key={league.id} className="leagues">
+          <div key={league.id} id={league.id} className="leagues">
             <NavLink to="/Table">
-              <BiFootball />
+              <BiFootball onClick={handleFetchTable} />
             </NavLink>
             <div style={{ ...style2, backgroundImage: `url(${league.logo})` }}>
               {league.name}
@@ -72,9 +79,6 @@ const Leagues = () => {
           </div>
         ))}
       </div>
-      <Routes>
-        <Route path="Table" element={<Table />} />
-      </Routes>
     </>
   );
 };
