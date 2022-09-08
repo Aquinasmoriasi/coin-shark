@@ -1,12 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import leaguesReducer from './leagues/leagues';
-
-const rootReducer = combineReducers({ leagues: leaguesReducer });
+import currenciesReducer from './currencies/currency';
 
 const store = configureStore({
-  reducer: rootReducer,
+  reducer: currenciesReducer,
   middleware: [thunk],
 });
 export default store;
