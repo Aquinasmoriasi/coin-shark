@@ -1,4 +1,46 @@
 `https://api.coingecko.com/api/v3/coins/${id}`
+  // console.log(
+  //   `${new Date(1662508800000).getHours().toString()}:${
+  //     new Date(1662508700000).getMinutes().toString()}`,
+  // );
+
+    //   const response = [
+    //   {
+    //     id: 'bitcoin',
+    //     symbol: 'btc',
+    //     name: 'Bitcoin',
+    //     image: {
+    //       thumb:
+    //         'https://assets.coingecko.com/coins/images/1/thumb/bitcoin.png?1547033579',
+    //       large:
+    //         'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    //     },
+    //     market_data: {
+    //       current_price: {
+    //         btc: 1,
+    //         usd: 19323.73,
+    //       },
+    //       market_cap: {
+    //         btc: 19144731,
+    //         usd: 369947615954,
+    //       },
+    //       market_cap_rank: 1,
+    //       total_volume: {
+    //         btc: 1553849,
+    //         usd: 30016273100,
+    //       },
+    //       high_24h: {
+    //         btc: 1,
+    //         usd: 100,
+    //       },
+    //       low_24h: {
+    //         btc: 1,
+    //         usd: 289,
+    //       },
+    //       price_change_percentage_24h: -3.18702,
+    //     },
+    //   },
+    // ];
 
 {
   "id": "bitcoin",

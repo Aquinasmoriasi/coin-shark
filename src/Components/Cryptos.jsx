@@ -14,6 +14,8 @@ const Cryptos = () => {
     }
   }, [cryptos.length, dispatch]);
 
+  console.log(cryptos);
+
   const style = {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
