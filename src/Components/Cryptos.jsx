@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { NavLink } from 'react-router-dom';
-import { fetchCryptos } from '../redux/currencies/currency';
+import { NavLink } from 'react-router-dom';
+import { BsArrowRightCircle } from 'react-icons/bs';
+import { fetchCryptos, setDetails } from '../redux/currencies/cryptos';
 
-const Countries = () => {
+const Cryptos = () => {
   const dispatch = useDispatch();
   const currencies = useSelector((state) => state);
 
@@ -13,26 +14,11 @@ const Countries = () => {
     }
   }, [currencies.length, dispatch]);
 
-  console.log(currencies);
   const style = {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
     color: '#fff',
   };
-
-  // const style2 = {
-  //   width: 'auto',
-  //   height: '25vh',
-  //   backgroundSize: '60%',
-  //   backgroundRepeat: 'no-repeat',
-  //   color: '#fff',
-  //   fontSize: '18px',
-  //   display: 'flex',
-  //   flexDirection: 'column-reverse',
-  //   alignItems: 'flex-end',
-  //   textAlign: 'end',
-  //   flexWrap: 'wrap',
-  // };
 
   const style3 = {
     width: 'auto',
@@ -46,23 +32,36 @@ const Countries = () => {
     alignItems: 'flex-end',
     textAlign: 'end',
     flexWrap: 'wrap',
-    padding: '12px 5px',
+    padding: '12px',
     fontSize: '13px',
+    position: 'relative',
   };
 
-  // const handleFetchTable = (e) => {
-  //   const { id } = e.target.parentNode.parentNode;
-  //   if (id) {
-  //     dispatch(fetchTables(id));
-  //   }
-  // };
+  const style4 = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    width: '100%',
+  };
+
+  const handleId = () => {
+    const details = { haha: 'haha' };
+    dispatch(setDetails(details));
+  };
 
   return (
     <>
-      <h1>haha</h1>
       {currencies.length && (
       <div style={{ ...style3, backgroundImage: `url(${currencies[0].image})` }}>
-        <p>
+        <NavLink
+          to="/Details"
+          style={{
+            position: 'absolute', top: '2px', right: '9px', color: 'green', fontSize: '30px',
+          }}
+          onClick={handleId}
+        >
+          <BsArrowRightCircle />
+        </NavLink>
+        <p style={style4}>
           Last Price:
           <span>
             $
@@ -74,20 +73,31 @@ const Countries = () => {
       )}
       <div style={style}>
         {currencies.map((currency) => (
-          <div key={currency.name} style={{ ...style3, backgroundImage: `url(${currency.image})` }} className="coins">
-            <p>
-              Last Price:
-              <span>
-                $
-                {currency.current_price}
-              </span>
-            </p>
-            <p>{currency.name}</p>
-          </div>
+          <>
+            <div key={currency.symbol} style={{ ...style3, backgroundImage: `url(${currency.image})` }} className="coins">
+              <p style={{ position: 'absolute', top: '5px', left: '9px' }}>{currency.symbol.toUpperCase()}</p>
+              <p style={style4}>
+                Last Price:
+                <span>
+                  $
+                  {currency.current_price}
+                </span>
+              </p>
+              <p>{currency.name}</p>
+              <NavLink
+                to="/Details"
+                style={{
+                  position: 'absolute', top: '2px', right: '9px', color: 'green', fontSize: '25px',
+                }}
+              >
+                <BsArrowRightCircle />
+              </NavLink>
+            </div>
+          </>
         ))}
       </div>
     </>
   );
 };
 
-export default Countries;
+export default Cryptos;

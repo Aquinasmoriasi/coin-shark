@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Gill Sans', sans-serif;
-  background-color: #1b1c1e;
+  background-color: rgb(27, 45, 51);
 }
 
 h1,
@@ -29,11 +29,11 @@ h3 {
 .coins:nth-of-type(12),
 .coins:nth-of-type(17),
 .coins:nth-of-type(20) {
-  background-color: #171414;
+  background-color: rgb(41, 54, 59);
 }
 
 .coins:nth-of-type(7),
 .coins:nth-of-type(10),
 .coins:nth-of-type(19) {
-  background-color: #1b1c1e;
+  background-color: rgb(27, 45, 51);
 }

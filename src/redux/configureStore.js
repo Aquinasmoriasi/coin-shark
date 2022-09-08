@@ -1,9 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import currenciesReducer from './currencies/currency';
+import cryptosReducer from './currencies/cryptos';
+import detailsReducer from './currencies/details';
+
+const rootReducer = combineReducers({ cryptos: cryptosReducer, details: detailsReducer });
 
 const store = configureStore({
-  reducer: currenciesReducer,
+  reducer: rootReducer,
   middleware: [thunk],
 });
 export default store;

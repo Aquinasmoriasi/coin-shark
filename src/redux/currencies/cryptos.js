@@ -1,33 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-const GET_CURRENCIES = 'crypto-currencies/currencies/GET_CURRENCY';
+const GET_CRYPTOS = 'crypto-currencies/currencies/GET_CURRENCY';
 const initialState = [];
 
 export const fetchCryptos = createAsyncThunk(
-  GET_CURRENCIES,
+  GET_CRYPTOS,
   async () => {
-    // const data = await fetch('https://api2.binance.com/api/v3/ticker/24hr');
-    // const response = await data.json();
-    // pair: res.symbol,
-    // average: res.weightedAvgPrice,
-    // open: res.openPrice,
-    // high: res.highPrice,
-    // low: res.lowPrice,
-    // volume: res.volume,
-    // change: res.priceChange,
-    // changePercent: res.priceChangePercent,
-    // weightedAvgPrice: res.weightedAvgPrice,
-    // prevClosePrice: res.prevClosePrice,
-    // lastPrice: res.lastPrice,
-    // lastQty: res.lastQty,
-    // bidPrice: res.bidPrice,
-    // bidQty: res.bidQty,
-    // openPrice: res.openPrice,
-    // highPrice: res.highPrice,
-    // lowPrice: res.lowPrice,
-    // openTime: res.openTime,
-    // closeTime: res.closeTime,
-    // }));
     const response = [
       {
         id: 'bitcoin',
@@ -272,7 +250,7 @@ export const fetchCryptos = createAsyncThunk(
 
 const currenciesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case `${GET_CURRENCIES}/fulfilled`:
+    case `${GET_CRYPTOS}/fulfilled`:
       return action.payload;
     default:
       return state;
