@@ -2,17 +2,18 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { BsArrowRightCircle } from 'react-icons/bs';
-import { fetchCryptos, setDetails } from '../redux/currencies/cryptos';
+import { fetchCryptos } from '../redux/cryptocurrencies/cryptos';
+import { setDetails } from '../redux/cryptocurrencies/details';
 
 const Cryptos = () => {
   const dispatch = useDispatch();
-  const currencies = useSelector((state) => state);
+  const cryptos = useSelector((state) => state.cryptos);
 
   useEffect(() => {
-    if (!currencies.length) {
+    if (!cryptos.length) {
       dispatch(fetchCryptos());
     }
-  }, [currencies.length, dispatch]);
+  }, [cryptos.length, dispatch]);
 
   const style = {
     display: 'grid',
@@ -24,7 +25,7 @@ const Cryptos = () => {
     width: 'auto',
     color: '#fff',
     height: '25vh',
-    backgroundSize: '30%',
+    backgroundSize: '20%',
     backgroundPosition: '50%',
     backgroundRepeat: 'no-repeat',
     display: 'flex',
@@ -43,39 +44,49 @@ const Cryptos = () => {
     width: '100%',
   };
 
-  const handleId = () => {
-    const details = { haha: 'haha' };
-    dispatch(setDetails(details));
+  const handleId = (e) => {
+    const detail = cryptos.find((crypto) => crypto.symbol === e.target.id);
+    dispatch(setDetails(detail));
   };
 
   return (
     <>
-      {currencies.length && (
-      <div style={{ ...style3, backgroundImage: `url(${currencies[0].image})` }}>
-        <NavLink
-          to="/Details"
-          style={{
-            position: 'absolute', top: '2px', right: '9px', color: 'green', fontSize: '30px',
-          }}
-          onClick={handleId}
-        >
-          <BsArrowRightCircle />
-        </NavLink>
-        <p style={style4}>
-          Last Price:
-          <span>
-            $
-            {currencies[0].current_price}
-          </span>
-        </p>
-        <p>{currencies[0].name}</p>
-      </div>
+      {cryptos.length && (
+        <div style={{ ...style3, backgroundImage: `url(${cryptos[0].image})` }}>
+          <NavLink
+            to="/Details"
+            style={{
+              position: 'absolute',
+              top: '2px',
+              right: '9px',
+              color: 'green',
+              fontSize: '30px',
+            }}
+            onClick={handleId}
+          >
+            <BsArrowRightCircle id={cryptos[0].symbol} />
+          </NavLink>
+          <p style={style4}>
+            Last Price:
+            <span>
+              $
+              {cryptos[0].current_price}
+            </span>
+          </p>
+          <p>{cryptos[0].name}</p>
+        </div>
       )}
       <div style={style}>
-        {currencies.map((currency) => (
+        {cryptos.map((currency) => (
           <>
-            <div key={currency.symbol} style={{ ...style3, backgroundImage: `url(${currency.image})` }} className="coins">
-              <p style={{ position: 'absolute', top: '5px', left: '9px' }}>{currency.symbol.toUpperCase()}</p>
+            <div
+              key={currency.symbol}
+              style={{ ...style3, backgroundImage: `url(${currency.image})` }}
+              className="coins"
+            >
+              <p style={{ position: 'absolute', top: '5px', left: '9px' }}>
+                {currency.symbol.toUpperCase()}
+              </p>
               <p style={style4}>
                 Last Price:
                 <span>
@@ -87,10 +98,14 @@ const Cryptos = () => {
               <NavLink
                 to="/Details"
                 style={{
-                  position: 'absolute', top: '2px', right: '9px', color: 'green', fontSize: '25px',
+                  position: 'absolute',
+                  top: '2px',
+                  right: '9px',
+                  color: 'green',
+                  fontSize: '25px',
                 }}
               >
-                <BsArrowRightCircle />
+                <BsArrowRightCircle id={currency.symbol} onClick={handleId} />
               </NavLink>
             </div>
           </>

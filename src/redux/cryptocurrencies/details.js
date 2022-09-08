@@ -1,15 +1,15 @@
-const GET_DETAILS = 'crypto-currencies/currencies/GET_ DETAIL';
+const GET_DETAILS = 'cryptocurrencies/cryptocurrencies/GET_DETAILS';
 const initialState = {};
 
 export const setDetails = (details) => ({
   type: GET_DETAILS,
-  details,
+  payload: details,
 });
 
 const detailsReducer = (state = initialState, action) => {
-  switch (action) {
+  switch (action.type) {
     case GET_DETAILS:
-      return action.details;
+      return action.payload;
     default:
       return state;
   }
