@@ -8,7 +8,6 @@ import { setDetails } from '../redux/cryptocurrencies/details';
 const Cryptos = () => {
   const dispatch = useDispatch();
   const cryptos = useSelector((state) => state.cryptos);
-
   useEffect(() => {
     if (!cryptos.length) {
       dispatch(fetchCryptos());
@@ -23,9 +22,9 @@ const Cryptos = () => {
 
   const style3 = {
     width: 'auto',
-    color: '#fff',
+    color: 'rgb(255, 235, 235)',
     height: '25vh',
-    backgroundSize: '20%',
+    backgroundSize: '35%',
     backgroundPosition: '50%',
     backgroundRepeat: 'no-repeat',
     display: 'flex',
@@ -51,26 +50,31 @@ const Cryptos = () => {
 
   return (
     <>
+      <h1 style={{ color: '#fff' }}>All currencies</h1>
       {cryptos.length && (
-        <div style={{ ...style3, backgroundImage: `url(${cryptos[0].image})` }}>
+        <div
+          style={{
+            ...style3,
+            backgroundImage: `url(${cryptos[0].image.large})`,
+          }}
+        >
           <NavLink
             to="/Details"
             style={{
               position: 'absolute',
               top: '2px',
               right: '9px',
-              color: 'green',
+              color: 'orange',
               fontSize: '30px',
             }}
-            onClick={handleId}
           >
-            <BsArrowRightCircle id={cryptos[0].symbol} />
+            <BsArrowRightCircle id={cryptos[0].symbol} onClick={handleId} />
           </NavLink>
           <p style={style4}>
-            Last Price:
+            Current Price:
             <span>
               $
-              {cryptos[0].current_price}
+              {cryptos[0].market_data.current_price.usd}
             </span>
           </p>
           <p>{cryptos[0].name}</p>
@@ -81,17 +85,20 @@ const Cryptos = () => {
           <>
             <div
               key={currency.symbol}
-              style={{ ...style3, backgroundImage: `url(${currency.image})` }}
+              style={{
+                ...style3,
+                backgroundImage: `url(${currency.image.large})`,
+              }}
               className="coins"
             >
               <p style={{ position: 'absolute', top: '5px', left: '9px' }}>
                 {currency.symbol.toUpperCase()}
               </p>
               <p style={style4}>
-                Last Price:
+                Current Price:
                 <span>
                   $
-                  {currency.current_price}
+                  {currency.market_data.current_price.usd}
                 </span>
               </p>
               <p>{currency.name}</p>
@@ -101,7 +108,7 @@ const Cryptos = () => {
                   position: 'absolute',
                   top: '2px',
                   right: '9px',
-                  color: 'green',
+                  color: 'orange',
                   fontSize: '25px',
                 }}
               >

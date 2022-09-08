@@ -1,16 +1,12 @@
 import React from 'react';
-import { NavLink, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Cryptos from './Cryptos';
 import Details from './Details';
 
 const Nav = () => (
   <>
     <header>
-      <nav>
-        <NavLink to="/">
-          <h1 style={{ color: '#fff' }}>All currencies</h1>
-        </NavLink>
-      </nav>
+      <nav />
     </header>
     <Routes>
       <Route path="/" element={<Cryptos />} />

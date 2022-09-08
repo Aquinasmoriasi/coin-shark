@@ -17,6 +17,10 @@ h3 {
   font-family: 'Lato', sans-serif;
 }
 
+.App {
+  padding: 5px;
+}
+
 .coins {
   display: flex;
   flex-direction: column;
@@ -37,4 +41,10 @@ h3 {
 .coins:nth-of-type(10),
 .coins:nth-of-type(19) {
   background-color: rgb(27, 45, 51);
+  color: rgb(255, 235, 235);
+}
+
+td {
+  font-size: 13px;
+  color: rgb(255, 235, 235);
 }
