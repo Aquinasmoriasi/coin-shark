@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { BsArrowRightCircle } from 'react-icons/bs';
 import { fetchCryptos } from '../redux/cryptocurrencies/cryptos';
 import { setDetails } from '../redux/cryptocurrencies/details';
+import Search from './Search';
 
 const Cryptos = () => {
   const dispatch = useDispatch();
@@ -13,8 +14,6 @@ const Cryptos = () => {
       dispatch(fetchCryptos());
     }
   }, [cryptos.length, dispatch]);
-
-  console.log(cryptos);
 
   const style = {
     display: 'grid',
@@ -50,9 +49,18 @@ const Cryptos = () => {
     dispatch(setDetails(detail));
   };
 
+  const [param, setSearch] = useState('');
+  const handleSearch = (e) => {
+    const query = e.target.value.trim();
+    setSearch(query);
+  };
+
+  const filteredCryptos = cryptos.filter((crypto) => crypto.name.replace(/-/, '').toLowerCase().includes(param));
+
   return (
     <>
       <h1 style={{ color: '#fff' }}>All currencies</h1>
+      <Search param={param} handleSearch={handleSearch} />
       {cryptos.length && (
         <div
           style={{
@@ -83,7 +91,7 @@ const Cryptos = () => {
         </div>
       )}
       <div style={style}>
-        {cryptos.map((currency) => (
+        {filteredCryptos.map((currency) => (
           <>
             <div
               key={currency.symbol}
