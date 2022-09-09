@@ -34,7 +34,7 @@ const Cryptos = () => {
       <h1 style={{ color: '#fff', textAlign: 'center' }}>Cryptocurrencies</h1>
       <Search param={param} handleSearch={handleSearch} />
       {!filteredCryptos.length && <div className="loader" />}
-      {cryptos.length && (
+      {filteredCryptos.length && (
         <div
           style={{
             backgroundImage: `url(${cryptos[31].image.large})`,
