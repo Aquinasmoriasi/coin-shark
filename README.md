@@ -56,7 +56,7 @@ git clone https://github.com/Aquinasmoriasi/coin-shark.git
 ### Deployment
 - This site is deployed at [https://coin-shark.netlify.app](https://coin-shark.netlify.app)
 
-## Authors
+## Author
 
 👤 **Aquinas Moriasi**
 
@@ -76,7 +76,7 @@ Feel free to check the [issues page](https://github.com/Aquinasmoriasi/coin-shar
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
-- All the contributors whose code was used
+- This project was inspired by a design by [Nelson Sakwa on Behance](https://www.behance.net/sakwadesignstudio)
 
 ## 📝 License
 
