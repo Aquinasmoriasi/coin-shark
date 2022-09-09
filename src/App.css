@@ -21,10 +21,42 @@ h3 {
   padding: 5px;
 }
 
-.coins {
+.all-coins {
+  width: auto;
+  color: rgb(255, 235, 235);
+  height: 25vh;
+  background-size: 30%;
+  background-position: 50%;
+  background-color: rgb(27, 39, 44);
+  background-repeat: no-repeat;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: flex-end;
+  text-align: end;
+  flex-wrap: wrap;
+  padding: 12px;
+  font-size: 13px;
+  position: relative;
+}
+
+.coins-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.coins div {
+  color: rgb(255, 235, 235);
+  height: 25vh;
+  background-size: 35%;
+  background-position: 50%;
+  padding: 1px 5px 1px 5px;
+  font-size: 13px;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  text-align: end;
 }
 
 .coins:nth-of-type(3n-2),
@@ -34,14 +66,30 @@ h3 {
 .coins:nth-of-type(12),
 .coins:nth-of-type(17),
 .coins:nth-of-type(20) {
-  background-color: rgb(41, 54, 59);
+  background-color: rgb(27, 39, 44);
 }
 
 .coins:nth-of-type(7),
 .coins:nth-of-type(10),
 .coins:nth-of-type(19) {
   background-color: rgb(27, 45, 51);
-  color: rgb(255, 235, 235);
+}
+
+footer p {
+  display: flex;
+  font-size: 13px;
+  color: #fff;
+}
+
+.currency-details {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.currency-price {
+  display: flex;
+  gap: 5px;
+  width: 100%;
 }
 
 td {
@@ -76,4 +124,18 @@ form input:focus {
 form svg {
   font-size: 18px;
   margin-right: 8px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 12.5%;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
 }

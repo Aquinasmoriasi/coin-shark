@@ -1,11 +1,10 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import Table from 'react-bootstrap/Table';
 import { BsArrowLeftCircle } from 'react-icons/bs';
 import { NavLink } from 'react-router-dom';
 
 const Details = () => {
-  const currency = useSelector((state) => state.details);
+  const currency = JSON.parse(localStorage.getItem('detail'));
   const style = {
     width: '100vw',
     color: '#fff',
