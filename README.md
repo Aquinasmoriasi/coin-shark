@@ -17,7 +17,7 @@
 [Live Demo Link](https://coin-shark.netlify.app)
 
 ## Video Description 
-None
+ This is the [video description of the project](https://drive.google.com/file/d/13sOHXrp3iGLz7QVtxCPj_sAewDto8HIW/view?usp=sharing)
 
 ## Getting Started
 
@@ -34,7 +34,6 @@ To get a local copy up and running, follow these simple steps.
 - copy this link 
 ```
 https://github.com/Aquinasmoriasi/coin-shark.git
-
 ```
 
 - Choose the directory that you want to clone the repository.
@@ -42,7 +41,6 @@ https://github.com/Aquinasmoriasi/coin-shark.git
 - write
 ```
 git clone https://github.com/Aquinasmoriasi/coin-shark.git
-
 ```
 - Navigate to the repository's location and open it on visual studio.
 - Write ``` npm start ``` to start the application on the browser.
@@ -76,7 +74,7 @@ Feel free to check the [issues page](https://github.com/Aquinasmoriasi/coin-shar
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
-- This project was inspired by a design by [Nelson Sakwa on Behance](https://www.behance.net/sakwadesignstudio)
+This project was inspired by a design by [Nelson Sakwa on Behance](https://www.behance.net/sakwadesignstudio)
 
 ## 📝 License
 
