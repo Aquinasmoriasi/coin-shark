@@ -10,7 +10,7 @@ const Nav = () => (
     </header>
     <Routes>
       <Route path="/" element={<Cryptos />} />
-      <Route path="/Details" element={<Details />} />
+      <Route path="/Details/:id" element={<Details />} />
     </Routes>
   </>
 );

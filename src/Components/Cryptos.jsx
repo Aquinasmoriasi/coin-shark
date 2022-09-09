@@ -42,7 +42,7 @@ const Cryptos = () => {
           className="all-coins"
         >
           <NavLink
-            to="/Details"
+            to={`/Details/${cryptos[31].id}`}
             style={{
               position: 'absolute',
               top: '2px',
@@ -87,7 +87,7 @@ const Cryptos = () => {
                 <span>{currency.name}</span>
               </div>
               <NavLink
-                to="/Details"
+                to={`/Details/${currency.id}`}
                 style={{
                   position: 'absolute',
                   top: '2px',
