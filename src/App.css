@@ -136,7 +136,7 @@ footer a {
   width: 80px;
   height: 80px;
   animation: spin 2s linear infinite;
-  margin: 15% 0 5% 39%;
+  margin: 15% 0 65% 39%;
 }
 
 @keyframes spin {
@@ -212,5 +212,9 @@ footer a {
     color: #fff;
     background-size: 20%;
     height: 30vh;
+  }
+
+  .loader {
+    margin: 10% 0 20% 45%;
   }
 }
