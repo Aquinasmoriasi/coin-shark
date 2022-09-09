@@ -7,8 +7,7 @@ export const fetchCryptos = createAsyncThunk(
   GET_CRYPTOS,
   async () => {
     const data = await fetch('https://api.coingecko.com/api/v3/coins/');
-    const json = await data.json();
-    const response = json.slice(0, 20);
+    const response = await data.json();
     const arr = [];
     const keys = Object.keys(response);
     keys.map((key) => arr.push({

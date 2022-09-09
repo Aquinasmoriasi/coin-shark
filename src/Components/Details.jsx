@@ -2,28 +2,12 @@ import React from 'react';
 import Table from 'react-bootstrap/Table';
 import { BsArrowLeftCircle } from 'react-icons/bs';
 import { NavLink } from 'react-router-dom';
+import Footer from './Footer';
 
 const Details = () => {
   const currency = JSON.parse(localStorage.getItem('detail'));
-  const style = {
-    width: '100vw',
-    color: '#fff',
-    height: '25vh',
-    backgroundSize: '50%',
-    backgroundPosition: '50%',
-    backgroundRepeat: 'no-repeat',
-    display: 'flex',
-    flexDirection: 'column-reverse',
-    alignItems: 'flex-start',
-    textAlign: 'end',
-    flexWrap: 'wrap',
-    fontSize: '13px',
-    position: 'relative',
-    padding: '23px',
-  };
-
   return (
-    <>
+    <div className="details">
       <NavLink
         to="/"
         style={{
@@ -36,7 +20,8 @@ const Details = () => {
       </NavLink>
       {currency && (
         <div
-          style={{ ...style, backgroundImage: `url(${currency.image.large})` }}
+          style={{ backgroundImage: `url(${currency.image.large})` }}
+          className="details-img"
         />
       )}
       <Table borderless hover variant="dark" className="text-light small">
@@ -108,48 +93,9 @@ const Details = () => {
           </tr>
         </tbody>
       </Table>
-      {/*
-      <Table>
-        <thead></thead>
-      </Table> */}
-      {/* <span></span>
-          <span>
-            $
-            <br />
-            BTC
-          </span>
-          <span>
-            Market Cap:
-          </span>
-          {currency.market_cap_change_24h}
-          {currency.market_cap_change_percentage_24h}
-          {currency.circulating_supply}
-          {currency.total_supply}
-          {currency.max_supply}
-          {currency.ath}
-          {currency.ath_change_percentage}
-          {currency.ath_date}
-          {currency.atl}
-          {currency.atl_change_percentage}
-          {currency.atl_date}
-          {currency.last_updated}
-        </div> */}
-    </>
+      <Footer />
+    </div>
   );
 };
 
 export default Details;
-
-// <Nav variant='tabs' defaultActiveKey='/home'>
-//   <Nav.Item>
-//     <Nav.Link href='/home'>Active</Nav.Link>
-//   </Nav.Item>
-//   <Nav.Item>
-//     <Nav.Link eventKey='link-1'>Option 2</Nav.Link>
-//   </Nav.Item>
-//   <Nav.Item>
-//     <Nav.Link eventKey='disabled' disabled>
-//       Disabled
-//     </Nav.Link>
-//   </Nav.Item>
-// </Nav>;

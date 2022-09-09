@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 
 const Search = ({ handleSearch, param }) => (
   <form>
-    <input type="text" onChange={handleSearch} value={param} />
+    <input type="text" onChange={handleSearch} value={param} placeholder="search cryptos" />
     <BiSearch />
   </form>
 );

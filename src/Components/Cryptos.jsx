@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { BsArrowRightCircle } from 'react-icons/bs';
 import { fetchCryptos } from '../redux/cryptocurrencies/cryptos';
 import Search from './Search';
+import Footer from './Footer';
 
 const Cryptos = () => {
   const dispatch = useDispatch();
@@ -32,11 +33,11 @@ const Cryptos = () => {
     <>
       <h1 style={{ color: '#fff', textAlign: 'center' }}>Cryptocurrencies</h1>
       <Search param={param} handleSearch={handleSearch} />
-      {!filteredCryptos.length && <div />}
+      {!filteredCryptos.length && <div className="loader" />}
       {cryptos.length && (
         <div
           style={{
-            backgroundImage: `url(${cryptos[0].image.large})`,
+            backgroundImage: `url(${cryptos[31].image.large})`,
           }}
           className="all-coins"
         >
@@ -50,16 +51,18 @@ const Cryptos = () => {
               fontSize: '30px',
             }}
           >
-            <BsArrowRightCircle id={cryptos[0].symbol} onClick={handleId} />
+            <BsArrowRightCircle id={cryptos[31].symbol} onClick={handleId} />
           </NavLink>
-          <p>
-            Current Price:
-            <span>
-              $
-              {cryptos[0].market_data.current_price.usd}
-            </span>
-          </p>
-          <p>{cryptos[0].name}</p>
+          <div className="currency-details">
+            <p className="currency-price">
+              <span> Current Price:</span>
+              <span>
+                $
+                {cryptos[31].market_data.current_price.usd}
+              </span>
+            </p>
+            <span>{cryptos[31].name}</span>
+          </div>
         </div>
       )}
       <div className="coins-container">
@@ -99,6 +102,7 @@ const Cryptos = () => {
           </div>
         ))}
       </div>
+      <Footer />
     </>
   );
 };
